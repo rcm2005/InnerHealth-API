@@ -7,8 +7,8 @@ using InnerHealth.Api.Services;
 namespace InnerHealth.Api.Controllers;
 
 /// <summary>
-/// API endpoints for managing water intake.
-/// Provides both version 1 and version 2 endpoints under the same controller.
+/// Endpoints para gerenciar ingestão de água.
+/// Esta classe expõe as versões 1 e 2 nos mesmos métodos.
 /// </summary>
 [ApiController]
 [Route("api/v{version:apiVersion}/water")]

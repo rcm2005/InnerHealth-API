@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para endpoint de atividade fisica
+/// DTOs para endpoints de atividades físicas.
 /// </summary>
 public class PhysicalActivityDto
 {

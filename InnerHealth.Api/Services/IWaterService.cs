@@ -1,28 +1,38 @@
 using InnerHealth.Api.Models;
 
-namespace InnerHealth.Api.Services; 
+namespace InnerHealth.Api.Services;
 
-// Operações relacionadas ao consumo de água.
+/// <summary>
+/// Provides operations for water intake.
+/// </summary>
 public interface IWaterService
 {
-    // Lista todos os registros de água de um dia específico.
+    /// <summary>
+    /// Gets all water intake records for a specific date.
+    /// </summary>
     Task<IEnumerable<WaterIntake>> GetIntakesAsync(DateOnly date);
-
-    // Total de água bebida no dia (em ml).
+    /// <summary>
+    /// Gets the total amount of water consumed on a given date.
+    /// </summary>
     Task<int> GetDailyTotalAsync(DateOnly date);
-
-    // Totais de água da semana inteira, começando pela data informada.
+    /// <summary>
+    /// Gets a collection representing the total water consumed for each day in the specified week.
+    /// </summary>
     Task<IDictionary<DateOnly, int>> GetWeeklyTotalsAsync(DateOnly weekStart);
-
-    // Cálculo da quantidade diária recomendada (baseado no peso do usuário).
+    /// <summary>
+    /// Calculates the recommended daily water intake (in millilitres) based on the user's weight.
+    /// </summary>
     Task<int> GetRecommendedDailyAmountAsync();
-
-    // Adiciona um novo registro de água para hoje.
+    /// <summary>
+    /// Adds a new water intake entry for today.
+    /// </summary>
     Task<WaterIntake> AddIntakeAsync(int amountMl);
-
-    // Atualiza um registro existente.
+    /// <summary>
+    /// Updates an existing water intake entry.
+    /// </summary>
     Task<WaterIntake?> UpdateIntakeAsync(int id, int amountMl);
-
-    // Remove um registro pelo ID.
+    /// <summary>
+    /// Deletes an existing water intake entry.
+    /// </summary>
     Task<bool> DeleteIntakeAsync(int id);
 }

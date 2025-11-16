@@ -1,34 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-
-    <!-- Habilita referências nulas e imports automáticos -->
+    <!-- Enable nullable reference types and implicit using directives -->
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- EF Core principal -->
+    <!-- Entity Framework Core core package -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
 
-    <!-- Provider do SQLite (não precisa de SQL Server instalado) -->
+    <!-- Replace the SQL Server provider with the SQLite provider to avoid requiring a local SQL Server installation -->
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
-
-    <!-- Ferramentas do EF Core (somente em tempo de desenvolvimento) -->
+    <!-- Tools package for EF Core migrations (marked as private) -->
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-
-    <!-- Swagger para documentação da API -->
+    <!-- Swagger for API documentation -->
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-
-    <!-- Versionamento da API -->
+    <!-- API versioning -->
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
 
-    <!-- Suporte extra para exibição de versões -->
+    <!-- Explorer support for API versioning (provides AddVersionedApiExplorer extension) -->
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
-
-    <!-- AutoMapper para mapear DTO <-> Model -->
+    <!-- AutoMapper for DTO/entity mapping -->
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
   </ItemGroup>
 </Project>

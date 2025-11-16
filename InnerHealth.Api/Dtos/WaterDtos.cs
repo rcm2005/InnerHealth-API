@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para o consumo de agua
+/// DTOs para endpoints de ingestão de água.
 /// </summary>
 public class WaterIntakeDto
 {
@@ -15,7 +15,7 @@ public class WaterIntakeDto
 public class CreateWaterIntakeDto
 {
     /// <summary>
-    /// Quantidade de agua consumida em Ml
+    /// Quantidade de água consumida em mililitros.
     /// </summary>
     [Range(1, int.MaxValue)]
     public int AmountMl { get; set; }
@@ -24,7 +24,7 @@ public class CreateWaterIntakeDto
 public class UpdateWaterIntakeDto
 {
     /// <summary>
-    /// Atualizar quantidade de água consumida (mL)
+    /// Quantidade de água consumida em mililitros.
     /// </summary>
     [Range(1, int.MaxValue)]
     public int AmountMl { get; set; }

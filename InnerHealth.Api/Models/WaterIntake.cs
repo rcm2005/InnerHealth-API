@@ -1,17 +1,21 @@
 namespace InnerHealth.Api.Models;
 
-// Registro de água bebida em um dia (em ml).
+/// <summary>
+/// Representa uma ingestão de água em uma data. A quantidade é armazenada em mililitros.
+/// </summary>
 public class WaterIntake
 {
     public int Id { get; set; }
-
-    // Data em que a pessoa bebeu água. Só a data importa.
+    /// <summary>
+    /// Data da ingestão. Só a data importa; o horário é ignorado.
+    /// </summary>
     public DateOnly Date { get; set; }
-
-    // Quantidade de água ingerida, em mililitros.
+    /// <summary>
+    /// Quantidade de água consumida em mililitros.
+    /// </summary>
     public int AmountMl { get; set; }
-
-    // Liga esse registro ao perfil do usuário.
+    
+    // Chave estrangeira pro perfil de usuário.
     public int UserProfileId { get; set; }
     public UserProfile? UserProfile { get; set; }
 }

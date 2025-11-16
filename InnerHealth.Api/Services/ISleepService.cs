@@ -2,7 +2,9 @@ using InnerHealth.Api.Models;
 
 namespace InnerHealth.Api.Services;
 
-// Operações relacionadas aos registros de sono.
+/// <summary>
+/// Provides operations for sleep records.
+/// </summary>
 public interface ISleepService
 {
     Task<SleepRecord?> GetRecordAsync(DateOnly date);

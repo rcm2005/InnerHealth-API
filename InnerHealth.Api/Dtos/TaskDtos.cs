@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para endpoint de tarefas
+/// DTOs para endpoints de tarefas.
 /// </summary>
 public class TaskItemDto
 {

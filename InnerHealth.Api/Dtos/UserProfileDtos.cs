@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para endpoint do perfil de usuario
+/// DTOs para o perfil do usuário.
 /// </summary>
 public class UserProfileDto
 {

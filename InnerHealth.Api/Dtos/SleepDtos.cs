@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para endpoint do sono
+/// DTOs para endpoints de registro de sono.
 /// </summary>
 public class SleepRecordDto
 {

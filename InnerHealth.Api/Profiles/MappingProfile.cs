@@ -4,7 +4,9 @@ using InnerHealth.Api.Models;
 
 namespace InnerHealth.Api.Profiles;
 
-// Configurações do AutoMapper — define como converter Models <-> DTOs.
+/// <summary>
+/// Configuração do AutoMapper pra converter entidades em DTOs e vice-versa.
+/// </summary>
 public class MappingProfile : Profile
 {
     public MappingProfile()
@@ -12,32 +14,32 @@ public class MappingProfile : Profile
         // UserProfile
         CreateMap<UserProfile, UserProfileDto>().ReverseMap();
 
-        // Água
+        // Water
         CreateMap<WaterIntake, WaterIntakeDto>().ReverseMap();
         CreateMap<CreateWaterIntakeDto, WaterIntake>();
         CreateMap<UpdateWaterIntakeDto, WaterIntake>();
 
-        // Exposição ao sol
+        // Sunlight
         CreateMap<SunlightSession, SunlightSessionDto>().ReverseMap();
         CreateMap<CreateSunlightSessionDto, SunlightSession>();
         CreateMap<UpdateSunlightSessionDto, SunlightSession>();
 
-        // Meditação
+        // Meditation
         CreateMap<MeditationSession, MeditationSessionDto>().ReverseMap();
         CreateMap<CreateMeditationSessionDto, MeditationSession>();
         CreateMap<UpdateMeditationSessionDto, MeditationSession>();
 
-        // Sono
+        // Sleep
         CreateMap<SleepRecord, SleepRecordDto>().ReverseMap();
         CreateMap<CreateSleepRecordDto, SleepRecord>();
         CreateMap<UpdateSleepRecordDto, SleepRecord>();
 
-        // Atividade física
+        // Physical Activity
         CreateMap<PhysicalActivity, PhysicalActivityDto>().ReverseMap();
         CreateMap<CreatePhysicalActivityDto, PhysicalActivity>();
         CreateMap<UpdatePhysicalActivityDto, PhysicalActivity>();
 
-        // Tarefas
+        // Task
         CreateMap<TaskItem, TaskItemDto>().ReverseMap();
         CreateMap<CreateTaskItemDto, TaskItem>();
         CreateMap<UpdateTaskItemDto, TaskItem>();

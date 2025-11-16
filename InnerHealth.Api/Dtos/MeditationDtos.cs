@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para o endpoint de meditação
+/// DTOs para endpoints de sessões de meditação.
 /// </summary>
 public class MeditationSessionDto
 {

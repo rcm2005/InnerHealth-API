@@ -7,8 +7,8 @@ using InnerHealth.Api.Models;
 namespace InnerHealth.Api.Controllers;
 
 /// <summary>
-/// API endpoints for managing the user profile.
-/// There is only one user in the system, but the API supports multiple users for future extensibility.
+/// Endpoints para gerenciar o perfil do usuário.
+/// Hoje só temos um usuário, mas a API já suporta múltiplos para facilitar expansões.
 /// </summary>
 [ApiController]
 [Route("api/v{version:apiVersion}/profile")]

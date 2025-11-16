@@ -1,23 +1,30 @@
 namespace InnerHealth.Api.Models;
 
-// Representa uma tarefa que o usuário precisa fazer.
+/// <summary>
+/// Representa uma tarefa a ser realizada.
+/// </summary>
 public class TaskItem
 {
     public int Id { get; set; }
-
-    // Título da tarefa.
+    /// <summary>
+    /// Título da tarefa.
+    /// </summary>
     public string? Title { get; set; }
-
-    // Explicação mais detalhada do que precisa ser feito.
+    /// <summary>
+    /// Descrição detalhada da tarefa.
+    /// </summary>
     public string? Description { get; set; }
-
-    // Data da tarefa (só o dia mesmo).
+    /// <summary>
+    /// Data da tarefa. Só a data conta; são tarefas diárias.
+    /// </summary>
     public DateOnly Date { get; set; }
-
-    // Marca se a tarefa já foi concluída.
+    /// <summary>
+    /// Indica se a tarefa foi concluída.
+    /// </summary>
     public bool IsComplete { get; set; }
-
-    // Prioridade opcional: 0 = baixa, 1 = média, 2 = alta.
+    /// <summary>
+    /// Prioridade opcional: 0=Baixa, 1=Média, 2=Alta.
+    /// </summary>
     public int? Priority { get; set; }
 
     public int UserProfileId { get; set; }

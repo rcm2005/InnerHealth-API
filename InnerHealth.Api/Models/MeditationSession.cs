@@ -1,14 +1,14 @@
 namespace InnerHealth.Api.Models;
 
 /// <summary>
-///Representa uma entrada de sessão de meditação 
+/// Representa uma sessão de meditação.
 /// </summary>
 public class MeditationSession
 {
     public int Id { get; set; }
     public DateOnly Date { get; set; }
     /// <summary>
-    /// Duração da meditação em minutos
+    /// Duração da sessão de meditação em minutos.
     /// </summary>
     public int Minutes { get; set; }
 

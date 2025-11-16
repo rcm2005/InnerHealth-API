@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace InnerHealth.Api.Dtos;
 
 /// <summary>
-/// DTOs para endpoint de exposição ao sol.
+/// DTOs para endpoints de sessões de exposição ao sol.
 /// </summary>
 public class SunlightSessionDto
 {

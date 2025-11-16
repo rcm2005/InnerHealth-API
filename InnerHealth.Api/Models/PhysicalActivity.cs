@@ -1,23 +1,23 @@
 namespace InnerHealth.Api.Models;
 
 /// <summary>
-/// Representa uma ssessão de atividade fisica
+/// Representa uma sessão de atividade física.
 /// </summary>
 public class PhysicalActivity
 {
     public int Id { get; set; }
     /// <summary>
-    /// data da sessão
+    /// Data da atividade.
     /// </summary>
     public DateOnly Date { get; set; }
 
     /// <summary>
-    /// Modalidade da atividade fisica (musculação, corrida, yoga)
+    /// Modalidade do exercício (ex.: corrida, ciclismo, yoga).
     /// </summary>
     public string? Modality { get; set; }
 
     /// <summary>
-    ///Duração em minutos
+    /// Duração da atividade em minutos.
     /// </summary>
     public int DurationMinutes { get; set; }
 

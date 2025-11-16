@@ -1,27 +1,37 @@
 namespace InnerHealth.Api.Models;
 
-// Perfil do usuário, com dados básicos usados pra gerar recomendações.
-// Mesmo tendo só um usuário no app, o modelo já suporta vários.
+/// <summary>
+/// Representa o perfil do usuário com informações usadas pra calcular recomendações. Hoje só tem um usuário, mas o esquema já suporta vários.
+/// </summary>
 public class UserProfile
 {
     public int Id { get; set; }
-
-    // Peso em kg — usado pra calcular quanto de água a pessoa deve beber no dia.
+    /// <summary>
+    /// Peso em quilos. Usado pra calcular a ingestão diária recomendada de água.
+    /// </summary>
     public decimal Weight { get; set; }
 
-    // Altura em cm. Guardado pra usos futuros.
+    /// <summary>
+    /// Altura em centímetros. Ainda não usamos nos cálculos, mas deixamos guardada pro futuro.
+    /// </summary>
     public decimal Height { get; set; }
 
-    // Idade do usuário.
+    /// <summary>
+    /// Idade do usuário em anos.
+    /// </summary>
     public int Age { get; set; }
 
-    // Nota de qualidade do sono (0 a 100) do dia atual. Zera todo dia.
+    /// <summary>
+    /// Qualidade do sono de 0 a 100 no dia atual. Esse valor reseta todo dia.
+    /// </summary>
     public int SleepQuality { get; set; }
 
-    // Horas dormidas no dia. Também zera diariamente.
+    /// <summary>
+    /// Horas dormidas no dia atual. Esse valor reseta todo dia.
+    /// </summary>
     public decimal SleepHours { get; set; }
 
-    // Relacionamentos com os outros registros do sistema
+    // Propriedades de navegação para métricas relacionadas
     public ICollection<WaterIntake>? WaterIntakes { get; set; }
     public ICollection<SunlightSession>? SunlightSessions { get; set; }
     public ICollection<MeditationSession>? MeditationSessions { get; set; }

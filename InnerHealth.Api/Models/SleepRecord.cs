@@ -1,17 +1,24 @@
 namespace InnerHealth.Api.Models;
 
-// Registro de como a pessoa dormiu em uma certa data.
+/// <summary>
+/// Representa o registro de sono de uma data.
+/// </summary>
 public class SleepRecord
 {
     public int Id { get; set; }
-
-    // Dia do registro. Representa a noite que veio antes.
+    /// <summary>
+    /// Data do registro de sono. Representa a noite que antecede o dia.
+    /// </summary>
     public DateOnly Date { get; set; }
 
-    // Total de horas dormidas.
+    /// <summary>
+    /// Número de horas dormidas.
+    /// </summary>
     public decimal Hours { get; set; }
 
-    // Nota de qualidade do sono (0 a 100).
+    /// <summary>
+    /// Qualidade do sono (0 a 100).
+    /// </summary>
     public int Quality { get; set; }
 
     public int UserProfileId { get; set; }

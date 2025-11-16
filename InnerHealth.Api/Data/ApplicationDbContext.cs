@@ -4,7 +4,7 @@ using InnerHealth.Api.Models;
 namespace InnerHealth.Api.Data
 {
     /// <summary>
-    /// Framework de entidade do database para a api
+    /// Contexto de banco de dados EF Core da API InnerHealth.
     /// </summary>
     public class ApplicationDbContext : DbContext
     {
