@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: innerhealth
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  api:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      CERT_PASSWORD: "123456"
+      ConnectionStrings__DefaultConnection: "server=mysql;port=3306;database=innerhealth;user=root;password=123456"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

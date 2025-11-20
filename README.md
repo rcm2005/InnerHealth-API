@@ -1,66 +1,72 @@
+Rafael Autieri dos Anjos - rm550885
+Henrique pontes Oliveira - rm98036
+Rafael Carvalho Mattos - rm99874
+
+
 # InnerHealth API
 
 ## Visão Geral
 
-A **InnerHealth API** é um backend RESTful em C#/.NET 8 criado como parte do projeto interdisciplinar *O Futuro do Trabalho*.  
-Ela monitora hábitos de bem-estar e produtividade — hidratação, sol, meditação, sono, atividades físicas e tarefas — oferecendo uma base moderna e extensível para projetos acadêmicos ou evoluções futuras.
+A InnerHealth API é uma aplicação RESTful desenvolvida em C#/.NET 8 para o projeto interdisciplinar “O Futuro do Trabalho”.  
+O sistema registra hábitos de bem-estar e produtividade, oferecendo uma base sólida e didática para análises de rotina, saúde e desempenho.
 
-A proposta é simples: registrar pequenos hábitos diários e gerar uma visão clara da rotina do usuário, ajudando na construção de práticas saudáveis no trabalho e na vida cotidiana.
+A proposta central é simples: coletar pequenos hábitos do dia a dia e fornecer uma visão clara e objetiva sobre o equilíbrio entre vida pessoal e profissional.
 
 ---
 
 ## Funcionalidades
 
 - **Perfil do Usuário**  
-  Peso, altura, idade, horas de sono, qualidade do sono — utilizados para metas e recomendações.
+  Armazena peso, altura, idade, horas de sono e qualidade do sono. Essas informações servem como base para metas e recomendações.
 - **Hidratação**  
-  Registros de ingestão de água (ml). Meta automática: `peso × 35 ml`.
+  Registro de ingestões de água. A meta diária é calculada automaticamente: `peso × 35 ml`.
 - **Exposição ao Sol**  
-  Sessões diárias em minutos. Meta padrão: **10 min**.
+  Sessões diárias de exposição ao sol em minutos. Meta padrão: 10 minutos.
 - **Meditação**  
-  Sessões em minutos. Meta padrão: **5 min**.
+  Sessões em minutos. Meta padrão: 5 minutos.
 - **Sono**  
-  Registros de horas dormidas e qualidade diária.
+  Registros de horas dormidas e qualidade do sono.
 - **Atividade Física**  
-  Modalidade + duração.
+  Modalidade e duração.
 - **Tarefas**  
-  Criação, edição e conclusão de tarefas diárias.
+  Criação, consulta, edição e exclusão de tarefas diárias.
 - **Swagger**  
-  Documentação automática acessível em `/swagger`.
-- **Versionamento de API**  
-  Suporte às versões `v1` e `v2` com rotas `/api/v1/...` e `/api/v2/...`.
+  Documentação automática disponibilizada em `/swagger`.
+- **Versionamento da API**  
+  Suporte às versões `v1` e `v2`, acessíveis via `/api/v1/...` e `/api/v2/...`.
 
 ---
 
 ## Arquitetura da Solução
 
-A estrutura segue um padrão simples, organizado e escalável:
+A API segue uma estrutura organizada, clara e de fácil manutenção:
 
 ```
 Cliente → Controllers → Services → Entity Framework Core → SQLite
 ```
 
-- **Controllers** lidam com as requisições HTTP.  
-- **Services** contêm a lógica de negócios.  
-- **DbContext** garante persistência.  
-- **SQLite** é usado como banco de dados local baseado em arquivo (`InnerHealth.db`).  
+- **Controllers:** responsáveis por receber chamadas HTTP e enviar respostas.
+- **Services:** camada de regras de negócio.
+- **DbContext:** interface direta com o banco, gerenciada pelo Entity Framework Core.
+- **SQLite:** banco relacional em arquivo, adequado para projetos de estudo e demonstração.
 
-O banco é criado automaticamente na primeira execução.
+O banco é criado automaticamente na primeira execução do projeto.
 
 ---
 
-## Como Começar
+## Como Executar
 
 ### 1. Pré-requisitos
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 
-*(Nenhuma instalação de SQL Server é necessária.)*
+- .NET 8 SDK instalado.
+
+Não é necessário instalar SQL Server ou qualquer outro sistema de banco de dados.
 
 ---
 
 ### 2. Clonar o Repositório
 
-```bash
+```
 git clone <url-do-repositorio>
 cd InnerHealth-backend/InnerHealth.Api
 ```
@@ -69,110 +75,180 @@ cd InnerHealth-backend/InnerHealth.Api
 
 ### 3. Executar a API
 
-```bash
+```
 dotnet run
 ```
 
-A API inicia em:
+A API será iniciada em:
 
-- **http://localhost:5000**  
-- Swagger em **http://localhost:5000/swagger**
+- `http://localhost:5000`  
+- `http://localhost:5000/swagger`
 
-O arquivo **InnerHealth.db** será criado automaticamente.
-
----
-
-## Versionamento e Rotas
-
-A API usa versionamento direto na URL.  
-Exemplos:
-
-```
-/api/v1/profile
-/api/v2/water/today
-```
-
-As versões v1 e v2 atualmente possuem os mesmos endpoints.
+O arquivo `InnerHealth.db` será criado automaticamente na pasta da aplicação.
 
 ---
+
+## Versionamento e Diferenças Entre v1 e v2
+
+A API utiliza versionamento explícito nas rotas:
+
+```
+/api/v1/...  
+/api/v2/...
+```
+
+### v1 — Versão Base  
+Contém toda a estrutura fundamental:
+- CRUD de cada módulo
+- Metas diárias básicas
+- Operações de hoje e da semana
+- Estrutura padrão do projeto
+
+### v2 — Versão Expandida  
+Inclui todos os recursos da v1 e acrescenta:
+- Rotinas internas otimizadas
+- Resumos diários mais completos
+- Respostas mais descritivas e adequadas para dashboards
+- Melhor organização dos serviços e cálculos agregados
+
+Os endpoints permanecem iguais em nome e finalidade, mas a lógica interna da v2 é mais rica e preparada para futuras expansões
+
+--
 
 ## Endpoints Principais
 
-`{v}` = versão (1 ou 2)
+Para qualquer `{v}` sendo 1 ou 2:
 
-### Perfil
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | `/api/v{v}/profile` | Obtém o perfil |
-| PUT | `/api/v{v}/profile` | Atualiza o perfil |
+### Perfil do Usuário
+- GET `/api/v{v}/profile`  
+- PUT `/api/v{v}/profile`
 
-### Água
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | `/api/v{v}/water/today` | Dados de hoje |
-| GET | `/api/v{v}/water/week` | Totais semanais |
-| POST | `/api/v{v}/water` | Registra ingestão |
-| PUT | `/api/v{v}/water/{id}` | Edita ingestão |
-| DELETE | `/api/v{v}/water/{id}` | Remove ingestão |
+### Hidratação
+- GET `/api/v{v}/water/today`  
+- GET `/api/v{v}/water/week`  
+- POST `/api/v{v}/water`  
+- PUT `/api/v{v}/water/{id}`  
+- DELETE `/api/v{v}/water/{id}`
 
 ### Sol, Meditação, Sono, Atividade Física
-Padrão igual ao módulo de água:
-
+Padrão semelhante ao módulo de hidratação:
 - `/today`
 - `/week`
-- POST (criar)
-- PUT (editar)
-- DELETE (remover)
+- POST, PUT, DELETE
 
 ### Tarefas
-| Método | Rota |
-|--------|-------|
-| GET | `/api/v{v}/tasks/today` |
-| GET | `/api/v{v}/tasks` |
-| POST | `/api/v{v}/tasks` |
-| PUT | `/api/v{v}/tasks/{id}` |
-| DELETE | `/api/v{v}/tasks/{id}` |
+- GET `/api/v{v}/tasks/today`
+- GET `/api/v{v}/tasks`
+- POST `/api/v{v}/tasks`
+- PUT `/api/v{v}/tasks/{id}`
+- DELETE `/api/v{v}/tasks/{id}`
 
 ---
 
 ## Metas Diárias
 
-- **Água:** `peso × 35 ml`  
-- **Sol:** 10 minutos  
-- **Meditação:** 5 minutos  
+- Água: `peso × 35 ml`
+- Exposição ao Sol: 10 minutos
+- Meditação: 5 minutos
 
-As metas são sugeridas e podem ser ultrapassadas ou ajustadas pelos registros do usuário.
+As metas são utilizadas para guiar hábitos saudáveis e também como base para alertas na v2.
 
 ---
 
 ## Controle Diário
 
-- Cada registro usa `DateOnly`  
-- Dados semanais sempre usam **segunda–domingo**  
-- Dias sem dados retornam **zero ou nulo**, facilitando gráficos e dashboards.
+- Todas as datas utilizam `DateOnly`  
+- Análises semanais seguem o modelo segunda–domingo  
+- Dias sem registros retornam valores zerados ou nulos, facilitando plotagem de gráficos e indicadores
 
 ---
 
 ## Autenticação
 
-A API **não possui autenticação** no momento, pois o foco é demonstrar funcionalidades e simplicidade.
+A API não possui autenticação.  
+O objetivo do projeto é demonstrar organização, boas práticas e clareza de código, sem adicionar complexidade que não seria utilizada na avaliação.
 
-Para o futuro:
-
-- JWT  
-- múltiplos usuários  
-- integração com aplicativos móveis  
+Possíveis evoluções:
+- Autenticação baseada em JWT
+- Suporte a múltiplos usuários
+- Vínculo com aplicativos móveis
 
 ---
 
 ## Extensões Futuras
 
-- Importação de dados via dispositivos (teclado/mouse, estresse)  
-- Relatórios com IA  
-- App mobile + notificações  
-- Versionamento avançado na v2  
-- Deploy em nuvem (Azure, AWS)
+O sistema foi estruturado de forma a facilitar melhorias, como:
+
+- Relatórios automáticos com auxílio de IA
+- Dashboard analítico
+- Aplicações mobile integradas
+- Conexão com dispositivos e sensores
+- Deploy em nuvem
+
+-------------------------------------------------------
+
+
+
+## Deploy em Cloud (Opcional)
+
+O projeto pode ser executado em qualquer provedor que suporte Docker.  
+Abaixo está um fluxo simples para subir a API em um servidor Linux (DigitalOcean, AWS EC2, Azure VM, Google VM, etc).
+
+### 1. Subir os arquivos para o servidor
+No servidor Linux, envie ou clone o repositório contendo:
+
+```
+Dockerfile  
+docker-compose.yml  
+entrypoint.sh  
+```
+
+Certifique-se de que estejam na raiz da API.
+
+### 2. Instalar Docker e Docker Compose
+
+```bash
+sudo apt update
+sudo apt install docker.io docker-compose -y
+sudo systemctl enable docker
+```
+
+### 3. Construir e subir os containers
+
+```bash
+sudo docker-compose up -d --build
+```
+
+Esse comando:
+
+- Faz pull da imagem do MySQL  
+- Faz build da imagem da API  
+- Inicia os containers  
+- Mantém tudo rodando em modo daemon
+
+### 4. Acessar a API na nuvem
+
+Use o IP público do servidor:
+
+```
+http://SEU_IP_PUBLICO:8080
+http://SEU_IP_PUBLICO:8080/swagger
+```
+
+### 5. Persistência e reinícios
+
+- O MySQL usa o volume `mysql_data`, garantindo persistência dos dados.  
+- A API utiliza `restart: always` e reinicia automaticamente.
+
+### 6. (Opcional) HTTPS com Certbot
+
+```bash
+sudo apt install certbot
+sudo certbot certonly --standalone -d seu-dominio.com
+```
+
+O Dockerfile já mapeia `/etc/letsencrypt` para dentro do container.
 
 ---
 
-Sinta-se livre para adaptar, expandir e contribuir com o projeto!
+Esta etapa é opcional e serve como complemento profissional para demonstração de deploy em ambiente cloud.
