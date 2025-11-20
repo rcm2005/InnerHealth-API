@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Build
+bin/
+obj/
+
+# Database local
+*.db
+
+# VS junk
+*.user
+*.swp
+*.sln.docstates
