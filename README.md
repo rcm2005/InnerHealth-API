@@ -3,6 +3,9 @@ Henrique pontes Oliveira - rm98036
 Rafael Carvalho Mattos - rm99874
 
 
+Vídeo demonstrativo integrado a solução mobile:
+https://youtu.be/hKCCjGrPQT0
+
 # InnerHealth API
 
 ## Visão Geral
